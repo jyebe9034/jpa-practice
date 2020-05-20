@@ -1,0 +1,32 @@
+# set h2 properties
+# 사실 path는 h2가 기본.
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # DB for h2
+  # 이부분 역시 spring boot가 기본으로 설정해주기 때문에 필요 없지만 나중에 DB를 변경할 때 필요하므로 설정함
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+# port 번호 변경(8080을 오라클이 사용중)
+server:
+  port: 8181
