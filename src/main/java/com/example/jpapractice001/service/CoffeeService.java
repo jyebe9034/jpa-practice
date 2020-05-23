@@ -17,10 +17,12 @@ public class CoffeeService {
         repository.save(coffee);
     }
 
-    public void updateById(Long id, Coffee coffee) {
-        Coffee original = repository.findById(id).get();
+    public void updateById(Coffee coffee) {
+        Coffee original = repository.findById(coffee.getId()).get();
         original.setName(coffee.getName());
         original.setPrice(coffee.getPrice());
+
+        repository.save(original);
     }
 
     public Coffee selectOne(Long id) {

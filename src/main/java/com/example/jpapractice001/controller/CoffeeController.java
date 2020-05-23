@@ -20,9 +20,9 @@ public class CoffeeController {
         service.insert(coffee);
     }
 
-    @PutMapping("/update/{id}")
-    public void updateCoffee(@PathVariable("id") Long id, @RequestBody Coffee coffee) { // TODO id를 coffee안에 한번에 받아야 하는건가..?
-        service.updateById(id, coffee);
+    @PutMapping("/update")
+    public void updateCoffee(@RequestBody Coffee coffee) {
+        service.updateById(coffee);
     }
 
     @GetMapping("/selectById/{id}")
